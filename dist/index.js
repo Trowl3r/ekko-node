@@ -1,7 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var server_1 = __importDefault(require("./server/server"));
-exports.default = server_1.default;
+exports.createServer = void 0;
+var server_1 = require("./server/server");
+Object.defineProperty(exports, "createServer", { enumerable: true, get: function () { return server_1.createServer; } });
