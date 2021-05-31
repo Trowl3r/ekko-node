@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createServer = void 0;
 var express_1 = __importDefault(require("express"));
-var createServer = function (middleware) {
-    if (middleware === void 0) { middleware = []; }
+var createServer = function (middlewareString) {
+    if (middlewareString === void 0) { middlewareString = []; }
     var app = express_1.default();
     app.use(express_1.default.json());
-    for (var _i = 0, middleware_1 = middleware; _i < middleware_1.length; _i++) {
-        var entry = middleware_1[_i];
+    for (var _i = 0, middlewareString_1 = middlewareString; _i < middlewareString_1.length; _i++) {
+        var entry = middlewareString_1[_i];
         app.use(eval(entry));
     }
     return app;

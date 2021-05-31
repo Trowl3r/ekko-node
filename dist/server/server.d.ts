@@ -1,1 +1,1 @@
-export declare const createServer: (middleware?: string[]) => import("express-serve-static-core").Express;
+export declare const createServer: (middlewareString?: string[]) => import("express-serve-static-core").Express;

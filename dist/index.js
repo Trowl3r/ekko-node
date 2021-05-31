@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createServer = void 0;
+exports.server = void 0;
 var server_1 = require("./server/server");
-Object.defineProperty(exports, "createServer", { enumerable: true, get: function () { return server_1.createServer; } });
+var server = {
+    createServer: server_1.createServer
+};
+exports.server = server;
