@@ -5,4 +5,11 @@ declare const server: {
 declare const db: {
     connectDB: (mongoURI: string, options?: import("mongoose").ConnectOptions) => Promise<void>;
 };
-export { server, db };
+declare const schema: {
+    userSchemas: {
+        UserSchema: import("mongoose").Schema<import("mongoose").Document<any, any>, import("mongoose").Model<any, any, any>, undefined>;
+        UsernameUserSchema: import("mongoose").Schema<import("mongoose").Document<any, any>, import("mongoose").Model<any, any, any>, undefined>;
+        FullNameUserSchema: import("mongoose").Schema<import("mongoose").Document<any, any>, import("mongoose").Model<any, any, any>, undefined>;
+    };
+};
+export { server, db, schema };
