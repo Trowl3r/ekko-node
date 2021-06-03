@@ -5,6 +5,11 @@ declare const server: {
     createServer: (middlewareString?: string[]) => import("express").Express;
     enRouter: typeof enRouter;
 };
+declare const routes: {
+    route: {
+        testRoute: typeof import("./routes/generics").testRoute;
+    };
+};
 declare const db: {
     connectDB: (mongoURI: string, options?: import("mongoose").ConnectOptions) => Promise<void>;
 };
@@ -15,4 +20,4 @@ declare const schema: {
         FullNameUserSchema: import("mongoose").Schema<import("mongoose").Document<any, any>, import("mongoose").Model<any, any, any>, undefined>;
     };
 };
-export { server, db, schema };
+export { server, db, schema, routes };

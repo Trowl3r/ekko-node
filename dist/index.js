@@ -1,14 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.schema = exports.db = exports.server = void 0;
+exports.routes = exports.schema = exports.db = exports.server = void 0;
 var server_1 = require("./server/server");
 var database_1 = require("./database/database");
 var index_1 = require("./Schema/index");
+var index_2 = require("./routes/index");
 var server = {
     createServer: server_1.createServer,
     enRouter: server_1.enRouter
 };
 exports.server = server;
+var routes = {
+    route: index_2.route
+};
+exports.routes = routes;
 var db = {
     connectDB: database_1.connectDB
 };
