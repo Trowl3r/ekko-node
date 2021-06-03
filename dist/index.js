@@ -5,7 +5,8 @@ var server_1 = require("./server/server");
 var database_1 = require("./database/database");
 var index_1 = require("./Schema/index");
 var server = {
-    createServer: server_1.createServer
+    createServer: server_1.createServer,
+    enRouter: server_1.enRouter
 };
 exports.server = server;
 var db = {
