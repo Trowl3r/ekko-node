@@ -11,6 +11,10 @@ exports.UserSchema = new mongoose_1.Schema({
     password: {
         type: String,
         required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 });
 exports.UsernameUserSchema = exports.UserSchema.add({
