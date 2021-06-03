@@ -1,4 +1,5 @@
 /// <reference types="mongoose" />
+import { userModels } from "./models/index";
 declare const server: {
     createServer: (middlewareString?: string[]) => import("express-serve-static-core").Express;
 };
@@ -12,4 +13,4 @@ declare const schema: {
         FullNameUserSchema: import("mongoose").Schema<import("mongoose").Document<any, any>, import("mongoose").Model<any, any, any>, undefined>;
     };
 };
-export { server, db, schema };
+export { server, db, schema, userModels };
