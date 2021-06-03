@@ -1,2 +1,2 @@
 import { Response } from "express";
-export declare function testRoute(req: Request, res: Response): void;
+export declare function testRoute(req: Request, res: Response): (test: string) => Response<any, Record<string, any>>;
