@@ -1,5 +1,4 @@
 /// <reference types="mongoose" />
-import { userModels } from "./models/index";
 declare const server: {
     createServer: (middlewareString?: string[]) => import("express-serve-static-core").Express;
 };
@@ -13,4 +12,14 @@ declare const schema: {
         FullNameUserSchema: import("mongoose").Schema<import("mongoose").Document<any, any>, import("mongoose").Model<any, any, any>, undefined>;
     };
 };
-export { server, db, schema, userModels };
+declare const models: {
+    userModels: {
+        User: import("mongoose").Model<import("./Schema/user").IUser, {}, {}>;
+        UsernameUser: import("mongoose").Model<import("./Schema/user").IUsernameUser, {}, {}>;
+        FullNameUser: import("mongoose").Model<import("./Schema/user").IFullNameUser, {}, {}>;
+        setUsermodelName: typeof import("./models/user").setUsermodelName;
+        setUsernamemodelName: typeof import("./models/user").setUsernamemodelName;
+        setFullnamemodelName: typeof import("./models/user").setFullnamemodelName;
+    };
+};
+export { server, db, schema, models };
