@@ -1,7 +1,8 @@
+/// <reference types="express" />
 /// <reference types="mongoose" />
 import { enRouter } from "./server/server";
 declare const server: {
-    createServer: (middlewareString?: string[]) => import("express-serve-static-core").Express;
+    createServer: (middlewareString?: string[]) => import("express").Express;
     enRouter: typeof enRouter;
 };
 declare const db: {
