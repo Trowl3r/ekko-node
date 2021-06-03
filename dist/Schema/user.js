@@ -17,14 +17,40 @@ exports.UserSchema = new mongoose_1.Schema({
         default: Date.now
     }
 });
-exports.UsernameUserSchema = exports.UserSchema.add({
+exports.UsernameUserSchema = new mongoose_1.Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
     username: {
         type: String,
         required: true,
         unique: true
     }
 });
-exports.FullNameUserSchema = exports.UserSchema.add({
+exports.FullNameUserSchema = new mongoose_1.Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
     firstName: {
         type: String,
         required: true
