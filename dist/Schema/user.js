@@ -6,6 +6,7 @@ exports.UserSchema = new mongoose_1.Schema({
     email: {
         type: String,
         required: true,
+        unique: true
     },
     password: {
         type: String,
@@ -15,7 +16,8 @@ exports.UserSchema = new mongoose_1.Schema({
 exports.UsernameUserSchema = exports.UserSchema.add({
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 });
 exports.FullNameUserSchema = exports.UserSchema.add({

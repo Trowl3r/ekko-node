@@ -1,14 +1,14 @@
 import { Schema, Document } from "mongoose";
-export interface User extends Document {
+export interface IUser extends Document {
     email: string;
     password: string;
 }
 export declare const UserSchema: Schema;
-export interface UsernameUser extends User {
+export interface IUsernameUser extends IUser {
     username: string;
 }
 export declare const UsernameUserSchema: Schema;
-export interface FullNameUser extends User {
+export interface IFullNameUser extends IUser {
     firstName: string;
     lastName: string;
 }
