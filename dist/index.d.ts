@@ -12,14 +12,4 @@ declare const schema: {
         FullNameUserSchema: import("mongoose").Schema<import("mongoose").Document<any, any>, import("mongoose").Model<any, any, any>, undefined>;
     };
 };
-declare const models: {
-    userModels: {
-        User: import("mongoose").Model<import("./Schema/user").IUser, {}, {}>;
-        UsernameUser: import("mongoose").Model<import("./Schema/user").IUsernameUser, {}, {}>;
-        FullNameUser: import("mongoose").Model<import("./Schema/user").IFullNameUser, {}, {}>;
-        setUsermodelName: typeof import("./models/user").setUsermodelName;
-        setUsernamemodelName: typeof import("./models/user").setUsernamemodelName;
-        setFullnamemodelName: typeof import("./models/user").setFullnamemodelName;
-    };
-};
-export { server, db, schema, models };
+export { server, db, schema };
