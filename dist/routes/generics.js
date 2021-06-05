@@ -98,7 +98,7 @@ function getOneData(req, res, model, params, returnString) {
                     modelFound = _a.sent();
                     if (!modelFound) {
                         if (returnString === "") {
-                            return [2 /*return*/, res.status(400).send("Internal Server Error")];
+                            return [2 /*return*/, res.status(400).send("Nothing found in Model" + model.name)];
                         }
                         else {
                             return [2 /*return*/, res.status(400).send(returnString)];
