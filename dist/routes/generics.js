@@ -92,7 +92,7 @@ function getOneData(req, res, model, params, returnString) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
+                    _a.trys.push([0, 2, , 3]);
                     return [4 /*yield*/, model.findOne(params)];
                 case 1:
                     modelFound = _a.sent();
@@ -104,16 +104,13 @@ function getOneData(req, res, model, params, returnString) {
                             return [2 /*return*/, res.status(404).send(returnString)];
                         }
                     }
-                    return [4 /*yield*/, modelFound.remove()];
-                case 2:
-                    _a.sent();
                     return [2 /*return*/, res.json(modelFound)];
-                case 3:
+                case 2:
                     err_3 = _a.sent();
                     e = err_3;
                     console.log(e);
                     return [2 /*return*/, res.status(500).send("Internal Server Error")];
-                case 4: return [2 /*return*/];
+                case 3: return [2 /*return*/];
             }
         });
     });
@@ -127,7 +124,7 @@ function deleteData(req, res, model, params, returnString, modelReturn) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
+                    _a.trys.push([0, 3, , 4]);
                     return [4 /*yield*/, model.findOne(params)];
                 case 1:
                     deleteModel = _a.sent();
@@ -142,13 +139,16 @@ function deleteData(req, res, model, params, returnString, modelReturn) {
                     if (modelReturn !== "") {
                         return [2 /*return*/, res.json({ msg: modelReturn })];
                     }
-                    return [2 /*return*/, res.json(deleteModel)];
+                    return [4 /*yield*/, deleteModel.remove()];
                 case 2:
+                    _a.sent();
+                    return [2 /*return*/, res.json(deleteModel)];
+                case 3:
                     err_4 = _a.sent();
                     e = err_4;
                     console.log(e);
                     return [2 /*return*/, res.status(500).send("Internal Server Error")];
-                case 3: return [2 /*return*/];
+                case 4: return [2 /*return*/];
             }
         });
     });
