@@ -73,7 +73,7 @@ function checkRequired(req, res, model, params, returnString) {
                     if (modelFound) {
                         return [2 /*return*/, res.status(400).send(returnString)];
                     }
-                    return [2 /*return*/];
+                    return [2 /*return*/, ""];
                 case 2:
                     err_2 = _a.sent();
                     e = err_2;
