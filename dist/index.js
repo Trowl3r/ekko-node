@@ -11,7 +11,7 @@ var server = {
 };
 exports.server = server;
 var routes = {
-    testRoute: generics_1.testRoute
+    createData: generics_1.createData
 };
 exports.routes = routes;
 var db = {
