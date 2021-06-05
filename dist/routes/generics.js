@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOneData = exports.checkRequired = exports.createData = void 0;
+exports.deleteData = exports.getOneData = exports.checkRequired = exports.createData = void 0;
 function createData(req, res, model, params) {
     return __awaiter(this, void 0, void 0, function () {
         var newModel, saveModel, err_1, e;
@@ -98,10 +98,10 @@ function getOneData(req, res, model, params, returnString) {
                     modelFound = _a.sent();
                     if (!modelFound) {
                         if (returnString === "") {
-                            return [2 /*return*/, res.status(400).send("Nothing found in " + model.collection.name)];
+                            return [2 /*return*/, res.status(404).send("Nothing found in " + model.collection.name)];
                         }
                         else {
-                            return [2 /*return*/, res.status(400).send(returnString)];
+                            return [2 /*return*/, res.status(404).send(returnString)];
                         }
                     }
                     return [2 /*return*/, res.json(modelFound)];
@@ -116,3 +116,38 @@ function getOneData(req, res, model, params, returnString) {
     });
 }
 exports.getOneData = getOneData;
+function deleteData(req, res, model, params, returnString, modelReturn) {
+    if (returnString === void 0) { returnString = ""; }
+    if (modelReturn === void 0) { modelReturn = ""; }
+    return __awaiter(this, void 0, void 0, function () {
+        var deleteModel, err_4, e;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, model.findOne(params)];
+                case 1:
+                    deleteModel = _a.sent();
+                    if (!deleteModel) {
+                        if (returnString === "") {
+                            return [2 /*return*/, res.status(404).send("Nothing found in " + model.collection.name)];
+                        }
+                        else {
+                            return [2 /*return*/, res.status(404).send(returnString)];
+                        }
+                    }
+                    if (modelReturn !== "") {
+                        return [2 /*return*/, res.json({ msg: modelReturn })];
+                    }
+                    return [2 /*return*/, res.json(deleteModel)];
+                case 2:
+                    err_4 = _a.sent();
+                    e = err_4;
+                    console.log(e);
+                    return [2 /*return*/, res.status(500).send("Internal Server Error")];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.deleteData = deleteData;

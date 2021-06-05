@@ -13,7 +13,8 @@ exports.server = server;
 var routes = {
     createData: generics_1.createData,
     checkRequired: generics_1.checkRequired,
-    getOneData: generics_1.getOneData
+    getOneData: generics_1.getOneData,
+    deleteData: generics_1.deleteData
 };
 exports.routes = routes;
 var db = {

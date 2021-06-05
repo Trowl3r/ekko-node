@@ -1,7 +1,7 @@
 /// <reference types="express" />
 /// <reference types="mongoose" />
 import { enRouter } from "./server/server";
-import { createData, checkRequired, getOneData } from "./routes/generics";
+import { createData, checkRequired, getOneData, deleteData } from "./routes/generics";
 declare const server: {
     createServer: (middlewareString?: string[]) => import("express").Express;
     enRouter: typeof enRouter;
@@ -10,6 +10,7 @@ declare const routes: {
     createData: typeof createData;
     checkRequired: typeof checkRequired;
     getOneData: typeof getOneData;
+    deleteData: typeof deleteData;
 };
 declare const db: {
     connectDB: (mongoURI: string, options?: import("mongoose").ConnectOptions) => Promise<void>;
