@@ -11,7 +11,8 @@ var server = {
 };
 exports.server = server;
 var routes = {
-    createData: generics_1.createData
+    createData: generics_1.createData,
+    checkRequired: generics_1.checkRequired
 };
 exports.routes = routes;
 var db = {
