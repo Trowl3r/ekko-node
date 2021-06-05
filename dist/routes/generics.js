@@ -136,12 +136,12 @@ function deleteData(req, res, model, params, returnString, modelReturn) {
                             return [2 /*return*/, res.status(404).send(returnString)];
                         }
                     }
-                    if (modelReturn !== "") {
-                        return [2 /*return*/, res.json({ msg: modelReturn })];
-                    }
                     return [4 /*yield*/, deleteModel.remove()];
                 case 2:
                     _a.sent();
+                    if (modelReturn !== "") {
+                        return [2 /*return*/, res.json({ msg: modelReturn })];
+                    }
                     return [2 /*return*/, res.json(deleteModel)];
                 case 3:
                     err_4 = _a.sent();
