@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkRequired = exports.createData = void 0;
+exports.getOneData = exports.checkRequired = exports.createData = void 0;
 function createData(req, res, model, params) {
     return __awaiter(this, void 0, void 0, function () {
         var newModel, saveModel, err_1, e;
@@ -85,3 +85,34 @@ function checkRequired(req, res, model, params, returnString) {
     });
 }
 exports.checkRequired = checkRequired;
+function getOneData(req, res, model, params, returnString) {
+    if (returnString === void 0) { returnString = ""; }
+    return __awaiter(this, void 0, void 0, function () {
+        var modelFound, err_3, e;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, model.findOne(params)];
+                case 1:
+                    modelFound = _a.sent();
+                    if (!modelFound) {
+                        if (returnString === "") {
+                            return [2 /*return*/, res.status(400).send("Internal Server Error")];
+                        }
+                        else {
+                            return [2 /*return*/, res.status(400).send(returnString)];
+                        }
+                    }
+                    return [2 /*return*/, res.json(modelFound)];
+                case 2:
+                    err_3 = _a.sent();
+                    e = err_3;
+                    console.log(e);
+                    return [2 /*return*/, res.status(500).send("Internal Server Error")];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.getOneData = getOneData;
