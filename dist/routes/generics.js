@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createData = void 0;
+exports.checkRequired = exports.createData = void 0;
 function createData(req, res, model, params) {
     return __awaiter(this, void 0, void 0, function () {
         var newModel, saveModel, err_1, e;
@@ -60,3 +60,28 @@ function createData(req, res, model, params) {
     });
 }
 exports.createData = createData;
+function checkRequired(req, res, model, params, returnString) {
+    return __awaiter(this, void 0, void 0, function () {
+        var modelFound, err_2, e;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, model.findOne(params)];
+                case 1:
+                    modelFound = _a.sent();
+                    if (modelFound) {
+                        return [2 /*return*/, res.status(400).send(returnString)];
+                    }
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_2 = _a.sent();
+                    e = err_2;
+                    console.log(e);
+                    return [2 /*return*/, res.status(500).send("Internal Server Error")];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.checkRequired = checkRequired;
